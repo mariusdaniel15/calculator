@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    flex-direction: column;
+    gap:4px;
+}
+
+.container{
+    display: flex;
+    gap:4px;
+    max-width: 300px;
+    padding-left: 7px;
+}
+
+.display{
+    display: flex;
+    border: 1px solid;
+    padding:40px 145px;
+}
+
+.numbers{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    flex-shrink: 2;
+}
+
+.operators{
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+}
+
+button{
+    padding:20px;
+    font-size: 20px;
+}
