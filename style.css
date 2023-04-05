@@ -5,26 +5,52 @@ body{
     height: 800px;
     flex-direction: column;
     gap:4px;
+    background-color: #BCBCBC;
+}
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    padding:8px;
+    gap:4px;
+    background-color: 	#2d2d2d;
 }
 
 .container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap:4px;
-    max-width: 300px;
-    padding-left: 7px;
+    width: 235px;
+    padding-left: 2px;
 }
 
 .display{
     display: flex;
-    border: 1px solid;
-    padding:40px 145px;
+    border: 1px solid gray;
+    height: 100px;
+    width: 230px;
+    font-size: 36px;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f0f0f0;
 }
 
 .numbers{
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    flex-shrink: 2;
+}
+
+.pointB{
+    padding:20px 22.5px;
+}
+
+.equals{
+    background-color: #9f9f9f;
 }
 
 .operators{
@@ -33,7 +59,32 @@ body{
     flex-direction: column;
 }
 
+.operator{
+    background-color: 	#9f9f9f;
+}
+
+.twoButtons{
+    display: flex;
+    flex:1;
+    gap:4px;
+}
+
+.deleteB{
+    padding:10px 28px;
+    background-color: #2986CC;
+}
+
+.clear{
+    padding:10px 34px;
+    background-color: #F44336;
+}
+
 button{
     padding:20px;
     font-size: 20px;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: white;
 }

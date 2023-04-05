@@ -32,20 +32,37 @@ const buttons2 = () => {
 }
 buttons2();
 
-//equals and clear
+//point and equals
 const buttons3 = () => {
-  const twoButtons = document.querySelector('.numbers');
+  const pointEquals = document.querySelector('.numbers');
+
+  const pointB = document.createElement('button');
+  pointB.classList.add('pointB');
+  pointB.textContent = '.';
+  pointEquals.appendChild(pointB);
+
   const equals = document.createElement('button');
   equals.classList.add('equals');
   equals.textContent = '=';
-  twoButtons.appendChild(equals);
+  pointEquals.appendChild(equals);
+}
+buttons3();
+
+//delete and clear
+const buttons4 = () => {
+  const deleteClear = document.querySelector('.twoButtons');
+
+  const deleteB = document.createElement('button');
+  deleteB.classList.add('deleteB');
+  deleteB.textContent = 'delete';
+  deleteClear.appendChild(deleteB);
 
   const clear = document.createElement('button');
   clear.classList.add('clear');
-  clear.textContent = 'c';
-  twoButtons.appendChild(clear);
+  clear.textContent = 'clear';
+  deleteClear.appendChild(clear);
 }
-buttons3();
+buttons4();
 
 // operator functions
 const add = (a,b) => a+b;
