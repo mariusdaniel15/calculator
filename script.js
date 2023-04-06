@@ -45,6 +45,22 @@ const buttons3 = () => {
   equals.classList.add('equals');
   equals.textContent = '=';
   pointEquals.appendChild(equals);
+
+  pointB.addEventListener('click', () => {
+    if (!currentOp) {
+      if (String(firstNum).includes('.')) {
+        return;
+      }
+      firstNum += '.';
+      display.textContent += '.';
+    } else {
+      if (String(secondNum).includes('.')) {
+        return;
+      }
+      secondNum += '.';
+      display.textContent += '.';
+    }
+  });
 }
 buttons3();
 
@@ -83,11 +99,22 @@ const addNumberListener = (num) => {
   const numberButton = document.querySelector(`#num${num}`);
   numberButton.addEventListener('click', () => {
     if (!currentOp) {
-      firstNum = firstNum * 10 + num;
+      firstNum = parseFloat(firstNum.toString() + num.toString());
+      display.textContent += num;
     } else {
-      secondNum = secondNum * 10 + num;
+      if (!secondNum && num === 0) {
+        display.textContent += '0';
+      } else if (num === '.') {
+        if (String(secondNum).includes('.')) {
+          return;
+        }
+        secondNum += '.';
+        display.textContent += '.';
+      } else {
+        secondNum = parseFloat(secondNum.toString() + num.toString());
+        display.textContent += num;
+      }
     }
-    display.textContent += num;
   });
 }
 
@@ -137,7 +164,7 @@ const continueOperate = (num1, num2, op) => {
     num2 = parseFloat(display.textContent.slice(display.textContent.lastIndexOf(currentOp) + 1));
     result = operate(num1, num2, currentOp);
     previousOp = newOp;
-    display.textContent = `${num1}${currentOp}${num2}${newOp}`;
+    display.textContent = operate(num1,num2,currentOp)+newOp;
   }
   return result;
 }
@@ -162,5 +189,23 @@ equals.addEventListener('click', () => {
     secondNum = 0;
     currentOp = '';
     newOp = '';
+  }
+});
+
+const deleteB = document.querySelector('.deleteB');
+deleteB.addEventListener('click', () => {
+  let string = display.textContent;
+  display.textContent = string.slice(0,-1);
+})
+
+const pointB = document.querySelector('.pointB');
+pointB.addEventListener('click', () => {
+  if (!display.textContent.includes('.')) {
+    display.textContent += '.';
+    if (!currentOp) {
+      firstNum = parseFloat(display.textContent);
+    } else {
+      secondNum = parseFloat(display.textContent.slice(display.textContent.lastIndexOf(currentOp) + 1));
+    }
   }
 });
